@@ -70,6 +70,7 @@ class ViewController : UIViewController {
          * Layout all the interface elements
          */
 
+        // This is required to lay out the interface elements
         view.translatesAutoresizingMaskIntoConstraints = false
         
         // Create an empty list of constraints
