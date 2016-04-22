@@ -19,7 +19,7 @@ class ViewController : UIViewController {
         view.backgroundColor = .grayColor()
         
         /*
-         * Create and position the label
+         * Create label that will be the title
          */
         let title = UILabel()
         
@@ -34,7 +34,7 @@ class ViewController : UIViewController {
         view.addSubview(title)
 
         /*
-         * Create and position amount field label
+         * Create label for the amount field
          */
         let amount = UILabel()
         
