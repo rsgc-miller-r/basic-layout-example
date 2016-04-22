@@ -7,11 +7,6 @@ import XCPlayground
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
     
-    // Create a method that runs when the switch is toggled
-    func bing() {
-        print("Bing!")
-    }
-    
     
     // This method runs when the superview loads
     override func viewDidLoad() {
@@ -23,34 +18,20 @@ class ViewController : UIViewController {
         // Make the view's background be gray
         view.backgroundColor = .grayColor()
         
-        /* 
-         * Create the switch object
-         */
-        let mySwitch : UISwitch = UISwitch()
-        
-        // Required to autolayout this label
-        mySwitch.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Make the "bing" method fire when the switch is used
-        mySwitch.addTarget(self, action: #selector(ViewController.bing), forControlEvents: UIControlEvents.TouchUpInside)
-
-        // Add the switch to the superview
-        view.addSubview(mySwitch)
-        
         /*
          * Create and position the label
          */
-        let myLabel = UILabel()
+        let title = UILabel()
         
         // Set the label text and appearance
-        myLabel.text = "Toggle me!"
-        myLabel.font = UIFont.boldSystemFontOfSize(36)
+        title.text = "Tip Calculator"
+        title.font = UIFont.boldSystemFontOfSize(36)
         
         // Required to autolayout this label
-        myLabel.translatesAutoresizingMaskIntoConstraints = false
+        title.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the label to the superview
-        view.addSubview(myLabel)
+        view.addSubview(title)
         
         /*
          * Layout all the interface elements
@@ -62,12 +43,12 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-        let viewsDictionary : [String : AnyObject] = ["switch": mySwitch,
-                     "label": myLabel]
+        let viewsDictionary : [String : AnyObject] = [
+                     "label1": title]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label][switch]",
+            "V:[label1]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
@@ -77,7 +58,7 @@ class ViewController : UIViewController {
 
         // Define the horizontal constraints
         let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[label][switch]",
+            "H:[label1]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
