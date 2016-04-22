@@ -16,7 +16,7 @@ class ViewController : UIViewController {
         super.viewDidLoad()
 
         // Make the view's background be gray
-        view.backgroundColor = .grayColor()
+        view.backgroundColor = UIColor.lightGrayColor()
         
         /*
          * Create label that will be the title
@@ -45,11 +45,11 @@ class ViewController : UIViewController {
         // Required to autolayout this label.
         amount.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the amount albel into the superview
+        // Add the amount label into the superview
         view.addSubview(amount)
 
         /*
-         * Create label for the amount field
+         * Create text field for the amount
          */
         let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
         
