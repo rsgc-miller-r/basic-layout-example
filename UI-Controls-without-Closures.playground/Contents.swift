@@ -7,6 +7,10 @@ import XCPlayground
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
     
+    // This method determines the actual tip
+    func determineTip() {
+        print("touched the button")
+    }
     
     // This method runs when the superview loads
     override func viewDidLoad() {
@@ -63,8 +67,25 @@ class ViewController : UIViewController {
         // Required to autolayout this field
         amountGiven.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the amount albel into the superview
+        // Add the amount text field into the superview
         view.addSubview(amountGiven)
+        
+        /*
+         * Add a button
+         */
+        let calculate = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+        
+        // Make the button, when touched, run the calculate method
+        calculate.addTarget(self, action: #selector(ViewController.determineTip), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        // Set the button's title
+        calculate.setTitle("Calculate", forState: UIControlState.Normal)
+        
+        // Required to auto layout this button
+        calculate.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the button into the super view
+        view.addSubview(calculate)
         
         /*
          * Layout all the interface elements
@@ -80,11 +101,12 @@ class ViewController : UIViewController {
         let viewsDictionary : [String : AnyObject] = [
                      "label1": title,
                      "label2": amount,
-                     "inputField1": amountGiven]
+                     "inputField1": amountGiven,
+                     "button": calculate]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1][label2][inputField1]",
+            "V:[label1][label2][inputField1][button]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
