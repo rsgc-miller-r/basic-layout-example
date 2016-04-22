@@ -32,6 +32,21 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(title)
+
+        /*
+         * Create and position amount field label
+         */
+        let amount = UILabel()
+        
+        // Set the label text and appearance
+        amount.text = "Amount"
+        amount.font = UIFont.systemFontOfSize(24)
+        
+        // Required to autolayout this label.
+        amount.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the amount albel into the superview
+        view.addSubview(amount)
         
         /*
          * Layout all the interface elements
@@ -44,11 +59,12 @@ class ViewController : UIViewController {
         
         // Create a dictionary of views that will be used in the layout constraints defined below
         let viewsDictionary : [String : AnyObject] = [
-                     "label1": title]
+                     "label1": title,
+                     "label2": amount]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1]",
+            "V:[label1][label2]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
