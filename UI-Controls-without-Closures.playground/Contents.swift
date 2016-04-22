@@ -7,9 +7,26 @@ import XCPlayground
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
     
+    // Make the text field global to the ViewController class, so it can be used in the determineTip method below
+    let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
+    
     // This method determines the actual tip
     func determineTip() {
-        print("touched the button")
+        
+        // Verify that the method was activated
+        print("touched the button...")
+        
+        // Unwrap the optional (a value might not have been given in the text field)
+        if let amountProvided = amountGiven.text {
+            print("something was provided in the text field...")
+            
+            // Now try to make the value be a double
+            if let amount = Double(amountProvided) {
+                print("...and the value is \(amount)")
+            }
+            
+        }
+        
     }
     
     // This method runs when the superview loads
@@ -53,10 +70,8 @@ class ViewController : UIViewController {
         view.addSubview(amount)
 
         /*
-         * Create text field for the amount
+         * Set up text field for the amount
          */
-        let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
-        
         // Set the label text and appearance
         amountGiven.borderStyle = UITextBorderStyle.RoundedRect
         amountGiven.font = UIFont.systemFontOfSize(15)
