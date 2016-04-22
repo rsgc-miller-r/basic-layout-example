@@ -47,6 +47,24 @@ class ViewController : UIViewController {
         
         // Add the amount albel into the superview
         view.addSubview(amount)
+
+        /*
+         * Create label for the amount field
+         */
+        let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
+        
+        // Set the label text and appearance
+        amountGiven.borderStyle = UITextBorderStyle.RoundedRect
+        amountGiven.font = UIFont.systemFontOfSize(15)
+        amountGiven.placeholder = "Enter an amount"
+        amountGiven.backgroundColor = UIColor.whiteColor()
+        amountGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        
+        // Required to autolayout this field
+        amountGiven.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the amount albel into the superview
+        view.addSubview(amountGiven)
         
         /*
          * Layout all the interface elements
@@ -60,11 +78,12 @@ class ViewController : UIViewController {
         // Create a dictionary of views that will be used in the layout constraints defined below
         let viewsDictionary : [String : AnyObject] = [
                      "label1": title,
-                     "label2": amount]
+                     "label2": amount,
+                     "inputField1": amountGiven]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1][label2]",
+            "V:[label1][label2][inputField1]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
