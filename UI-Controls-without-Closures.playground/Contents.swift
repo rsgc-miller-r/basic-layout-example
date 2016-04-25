@@ -86,7 +86,7 @@ class ViewController : UIViewController {
         view.addSubview(amountGiven)
         
         /*
-         * Create label for the amount field
+         * Create label for the tip field
          */
         let tip = UILabel()
         
@@ -97,7 +97,7 @@ class ViewController : UIViewController {
         // Required to autolayout this label.
         tip.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the amount label into the superview
+        // Add the tip label into the superview
         view.addSubview(tip)
         
         /*
