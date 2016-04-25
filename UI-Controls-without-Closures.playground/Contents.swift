@@ -7,8 +7,9 @@ import XCPlayground
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
     
-    // Make the text field global to the ViewController class, so it can be used in the determineTip method below
+    // Make the text fields global to the ViewController class, so it can be used in the determineTip method below
     let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
+    let tipGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     
     // This method determines the actual tip
     func determineTip() {
@@ -101,6 +102,22 @@ class ViewController : UIViewController {
         view.addSubview(tip)
         
         /*
+         * Set up text field for the tip percentage
+         */
+        // Set the label text and appearance
+        tipGiven.borderStyle = UITextBorderStyle.RoundedRect
+        tipGiven.font = UIFont.systemFontOfSize(15)
+        tipGiven.placeholder = "15%"
+        tipGiven.backgroundColor = UIColor.whiteColor()
+        tipGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        
+        // Required to autolayout this field
+        tipGiven.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the tip percentage text field into the superview
+        view.addSubview(tipGiven)
+
+        /*
          * Add a button
          */
         let calculate = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
@@ -133,11 +150,12 @@ class ViewController : UIViewController {
                      "label2": amount,
                      "inputField1": amountGiven,
                      "label3": tip,
+                     "inputField2": tipGiven,
                      "button": calculate]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1][label2][inputField1][label3][button]",
+            "V:[label1][label2][inputField1][label3][inputField2][button]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
