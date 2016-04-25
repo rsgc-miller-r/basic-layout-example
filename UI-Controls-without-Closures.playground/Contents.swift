@@ -18,6 +18,10 @@ class ViewController : UIViewController {
         // Error message
         var error : String = ""
         
+        // Cleaned up values for determining tip
+        var amountAsDouble : Double = 0
+        var tipAsDouble : Double = 0
+        
         // Verify that the method was activated
         print("touched the button...")
         
@@ -37,6 +41,7 @@ class ViewController : UIViewController {
             // We at least have a string, now try to make the value be a double
             if let amount = Double(amountProvidedClean) {
                 print("...and the value is \(amount)")
+                amountAsDouble = amount
             } else {
                 error += "Please provide a valid\ndollar amount, e.g.: 27.50\n\n"
             }
@@ -59,6 +64,7 @@ class ViewController : UIViewController {
             // Try to convert the value to a Double
             if let tipPercent = Double(tipPercentageClean) {
                 print("...and the percentage is \(tipPercent)")
+                tipAsDouble = tipPercent
             } else {
                 error += "Please provide a valid\ntip percentage, eg: 20%"
             }
@@ -67,13 +73,13 @@ class ViewController : UIViewController {
         
         // Calculate the values if there were no errors
         if error == "" {
-            
+            // Actually calculate the value
+            let total : Double = amountAsDouble * (1 + tipAsDouble / 100)
+            payThisMuch.text = String.localizedStringWithFormat("Leave\n$%.2f", total)
         } else {
             // Report the error
             payThisMuch.text = error
         }
-        
-        
         
     }
     
