@@ -153,6 +153,22 @@ class ViewController : UIViewController {
         
         // Add the button into the super view
         view.addSubview(calculate)
+
+        /*
+         * Create label for the amount that should be paid
+         */
+        let payThisMuch = UILabel()
+        
+        // Set the label text and appearance
+        payThisMuch.text = "test"
+        payThisMuch.font = UIFont.systemFontOfSize(24)
+        payThisMuch.textColor = UIColor.blueColor()
+        
+        // Required to autolayout this label.
+        payThisMuch.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the tip label into the superview
+        view.addSubview(payThisMuch)
         
         /*
          * Layout all the interface elements
@@ -171,11 +187,12 @@ class ViewController : UIViewController {
                      "inputField1": amountGiven,
                      "label3": tip,
                      "inputField2": tipGiven,
-                     "button": calculate]
+                     "button": calculate,
+                     "label4": payThisMuch]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1][label2][inputField1][label3][inputField2][button]",
+            "V:[label1][label2][inputField1][label3][inputField2][button][label4]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
