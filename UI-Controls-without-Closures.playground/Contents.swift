@@ -53,7 +53,7 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(title)
-
+        
         /*
          * Create label for the amount field
          */
@@ -84,6 +84,21 @@ class ViewController : UIViewController {
         
         // Add the amount text field into the superview
         view.addSubview(amountGiven)
+        
+        /*
+         * Create label for the amount field
+         */
+        let tip = UILabel()
+        
+        // Set the label text and appearance
+        tip.text = "Tip Percentage"
+        tip.font = UIFont.systemFontOfSize(24)
+        
+        // Required to autolayout this label.
+        tip.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the amount label into the superview
+        view.addSubview(tip)
         
         /*
          * Add a button
@@ -117,11 +132,12 @@ class ViewController : UIViewController {
                      "label1": title,
                      "label2": amount,
                      "inputField1": amountGiven,
+                     "label3": tip,
                      "button": calculate]
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1][label2][inputField1][button]",
+            "V:[label1][label2][inputField1][label3][button]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
