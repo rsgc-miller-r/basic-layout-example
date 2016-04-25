@@ -17,13 +17,33 @@ class ViewController : UIViewController {
         // Verify that the method was activated
         print("touched the button...")
         
-        // Unwrap the optional (a value might not have been given in the text field)
+        // Unwrap the optional (a value might not have been given in the amount text field)
         if let amountProvided = amountGiven.text {
-            print("something was provided in the text field...")
             
-            // Now try to make the value be a double
+            print("something was provided in the amount text field...")
+            
+            // We at least have a string, now try to make the value be a double
             if let amount = Double(amountProvided) {
                 print("...and the value is \(amount)")
+            }
+            
+        }
+
+        // Unwrap the optional (a value might not have been given in the amount text field)
+        if let tipProvided = tipGiven.text {
+            print("something was provided in the tip text field...")
+            
+            // We at least have a string for the tip %, strip out the % sign if it is present
+            var tipPercentageClean : String = ""
+            for character in tipProvided.characters {
+                if character != "%" {
+                    tipPercentageClean += String(character)
+                }
+            }
+            
+            // Try to convert the value to a Double
+            if let tipPercent = Double(tipPercentageClean) {
+                print("...and the percentage is \(tipPercent)")
             }
             
         }
