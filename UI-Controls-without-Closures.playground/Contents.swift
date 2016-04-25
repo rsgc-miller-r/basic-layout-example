@@ -25,9 +25,17 @@ class ViewController : UIViewController {
         if let amountProvided = amountGiven.text {
             
             print("something was provided in the amount text field...")
+
+            // We at least have a string for the dollar amount, strip out the $ sign if it is present
+            var amountProvidedClean : String = ""
+            for character in amountProvided.characters {
+                if character != "$" {
+                    amountProvidedClean += String(character)
+                }
+            }
             
             // We at least have a string, now try to make the value be a double
-            if let amount = Double(amountProvided) {
+            if let amount = Double(amountProvidedClean) {
                 print("...and the value is \(amount)")
             } else {
                 error += "Please provide a valid\ndollar amount, e.g.: 27.50\n\n"
@@ -37,6 +45,7 @@ class ViewController : UIViewController {
         
         // Unwrap the optional (a value might not have been given in the amount text field)
         if let tipProvided = tipGiven.text {
+            
             print("something was provided in the tip text field...")
             
             // We at least have a string for the tip %, strip out the % sign if it is present
@@ -114,7 +123,7 @@ class ViewController : UIViewController {
         // Set the label text and appearance
         amountGiven.borderStyle = UITextBorderStyle.RoundedRect
         amountGiven.font = UIFont.systemFontOfSize(15)
-        amountGiven.placeholder = "Enter an amount"
+        amountGiven.placeholder = "$100.00"
         amountGiven.backgroundColor = UIColor.whiteColor()
         amountGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         
