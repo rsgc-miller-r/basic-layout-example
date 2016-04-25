@@ -185,7 +185,7 @@ class ViewController : UIViewController {
          * Create label for the amount that should be paid
          */
         // Set the label text and appearance
-        payThisMuch.text = "test"
+        payThisMuch.text = ""
         payThisMuch.font = UIFont.systemFontOfSize(24)
         payThisMuch.textColor = UIColor.blueColor()
         payThisMuch.numberOfLines = 0   // makes number of lines dynamic
