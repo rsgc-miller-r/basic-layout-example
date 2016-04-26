@@ -34,15 +34,11 @@ extension UIView {
 // First, we will define a custom view controller named ViewController that
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
-<<<<<<< HEAD
-
-=======
     
     // Make these views global to the ViewController class, so it can be used in the determineTip method below
     let amountGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
     let tipGiven = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     let payThisMuch = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 300))
->>>>>>> rgordonatrsgc/master
     
     // This method determines the actual tip
     func determineTip() {
@@ -125,9 +121,6 @@ class ViewController : UIViewController {
         // Make the view's background be gray
         view.backgroundColor = UIColor.lightGrayColor()
         
-<<<<<<< HEAD
-   
-=======
         /*
          * Create label that will be the title
          */
@@ -142,29 +135,10 @@ class ViewController : UIViewController {
         
         // Add the label to the superview
         view.addSubview(title)
->>>>>>> rgordonatrsgc/master
         
         /*
          * Create label for the amount field
          */
-<<<<<<< HEAD
-        let firstTitle = UILabel()
-        let amount = UILabel()
-        
-        
-        // Set the label text and appearance
-        firstTitle.text = "Tip Calculator"
-        firstTitle.font = UIFont.boldSystemFontOfSize(36)
-        amount.text = "Ammount"
-        amount.font = UIFont.boldSystemFontOfSize(24)
-        
-        // Required to autolayout this label
-        firstTitle.translatesAutoresizingMaskIntoConstraints = false
-        amount.translatesAutoresizingMaskIntoConstraints = false
-        // Add the label to the superview
-        view.addSubview(firstTitle)
-        view.addSubview(amount)
-=======
         let amount = UILabel()
         
         // Set the label text and appearance
@@ -259,7 +233,6 @@ class ViewController : UIViewController {
         
         // Add the tip label into the superview
         view.addSubview(payThisMuch)
->>>>>>> rgordonatrsgc/master
         
         /*
          * Layout all the interface elements
@@ -272,13 +245,6 @@ class ViewController : UIViewController {
         var allConstraints = [NSLayoutConstraint]()
         
         // Create a dictionary of views that will be used in the layout constraints defined below
-<<<<<<< HEAD
-        let viewsDictionary : [String : AnyObject] = ["label": firstTitle, "label2": amount]
-        
-        // Define the vertical constraints
-        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label][label2]",
-=======
         let viewsDictionary : [String : AnyObject] = [
             "label1": title,
             "label2": amount,
@@ -291,25 +257,12 @@ class ViewController : UIViewController {
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
             "V:|-50-[label1]-20-[label2][inputField1]-15-[label3][inputField2]-15-[button]-20-[label4]",
->>>>>>> rgordonatrsgc/master
             options: [],
             metrics: nil,
             views: viewsDictionary)
         
         // Add the vertical constraints to the list of constraints
         allConstraints += verticalConstraints
-<<<<<<< HEAD
-
-        // Define the horizontal constraints
-        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[label]",
-            options: [],
-            metrics: nil,
-            views: viewsDictionary)
-
-        // Add the vertical constraints to the list of constraints
-        allConstraints += horizontalConstraints
-=======
         
         // Centre all views in the superview
         title.centerHorizontallyInSuperview()
@@ -319,7 +272,6 @@ class ViewController : UIViewController {
         tipGiven.centerHorizontallyInSuperview()
         calculate.centerHorizontallyInSuperview()
         payThisMuch.centerHorizontallyInSuperview()
->>>>>>> rgordonatrsgc/master
         
         // Activate all defined constraints
         NSLayoutConstraint.activateConstraints(allConstraints)
