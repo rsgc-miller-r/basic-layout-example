@@ -160,6 +160,7 @@ class ViewController : UIViewController {
         amountGiven.placeholder = "$100.00"
         amountGiven.backgroundColor = UIColor.whiteColor()
         amountGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        amountGiven.textAlignment = NSTextAlignment.Center
         
         // Required to autolayout this field
         amountGiven.translatesAutoresizingMaskIntoConstraints = false
@@ -191,6 +192,7 @@ class ViewController : UIViewController {
         tipGiven.placeholder = "15%"
         tipGiven.backgroundColor = UIColor.whiteColor()
         tipGiven.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        tipGiven.textAlignment = NSTextAlignment.Center
         
         // Required to autolayout this field
         tipGiven.translatesAutoresizingMaskIntoConstraints = false
@@ -224,6 +226,7 @@ class ViewController : UIViewController {
         payThisMuch.textColor = UIColor.blueColor()
         payThisMuch.numberOfLines = 0   // makes number of lines dynamic
                                         // e.g.: multiple lines will show up
+        payThisMuch.textAlignment = NSTextAlignment.Center
         
         // Required to autolayout this label.
         payThisMuch.translatesAutoresizingMaskIntoConstraints = false
