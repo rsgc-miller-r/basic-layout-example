@@ -256,7 +256,7 @@ class ViewController : UIViewController {
         
         // Define the vertical constraints
         let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[label1]-20-[label2][inputField1]-15-[label3][inputField2]-15-[button]-20-[label4]",
+            "V:|-50-[label1]-20-[label2][inputField1]-15-[label3][inputField2]-15-[button]-20-[label4]",
             options: [],
             metrics: nil,
             views: viewsDictionary)
