@@ -3,6 +3,34 @@
 import UIKit
 import XCPlayground
 
+// An extension is a Swift language construct that, as the name implies,
+// allows you to extend, or add functionality to, an existing type or class.
+// In this case, we are adding functionality to the UIView class.
+//
+// Note that UIView class is a super-class for all the UI elements we are using
+// here (UILabel, UITextField, UIButton).
+// So if we write an extension for UIView, all the sub-classes of UIView have this
+// new functionality as well.
+extension UIView {
+    
+    // A convenience function that saves us directly invoking the rather verbose
+    // NSLayoutConstraint initializer on each and every object in the interface.
+    func centerHorizontallyInSuperview(){
+        let c: NSLayoutConstraint = NSLayoutConstraint(item: self,
+                                                    attribute: NSLayoutAttribute.CenterX,
+                                                    relatedBy: NSLayoutRelation.Equal,
+                                                    toItem: self.superview,
+                                                    attribute: NSLayoutAttribute.CenterX,
+                                                    multiplier:1,
+                                                    constant: 0)
+        
+        // Add this constraint to the superview
+        self.superview?.addConstraint(c)
+        
+    }
+    
+}
+
 // First, we will define a custom view controller named ViewController that
 // is a sub-class of UIViewController
 class ViewController : UIViewController {
@@ -233,18 +261,18 @@ class ViewController : UIViewController {
         // Add the vertical constraints to the list of constraints
         allConstraints += verticalConstraints
         
-        // Define the horizontal constraints
-        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
-            "H:[label1]",
-            options: [],
-            metrics: nil,
-            views: viewsDictionary)
-        
-        // Add the vertical constraints to the list of constraints
-        allConstraints += horizontalConstraints
+        // Centre all views in the superview
+        title.centerHorizontallyInSuperview()
+        amount.centerHorizontallyInSuperview()
+        amountGiven.centerHorizontallyInSuperview()
+        tip.centerHorizontallyInSuperview()
+        tipGiven.centerHorizontallyInSuperview()
+        calculate.centerHorizontallyInSuperview()
+        payThisMuch.centerHorizontallyInSuperview()
         
         // Activate all defined constraints
         NSLayoutConstraint.activateConstraints(allConstraints)
+
         
     }
 }
